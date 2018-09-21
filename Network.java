@@ -1,12 +1,11 @@
 package com.homework.phone;
-import java.util.ArrayList;
+
 public class Network {
-	private  ArrayList<String> telNumbers = new ArrayList<String>();
+	private String[] telNumbers = new String[20];
 	
 
 
-
-	public Network(ArrayList<String> telNumbers) {
+	public Network(String[] telNumbers) {
 		super();
 		this.telNumbers = telNumbers;
 	}
@@ -16,30 +15,43 @@ public class Network {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArrayList<String> getTelNumbers() {
+	public String[] getTelNumbers() {
 		return telNumbers;
 	}
 
-	public void setTelNumbers(ArrayList<String> telNumbers) {
+	public void setTelNumbers(String[] telNumbers) {
 		this.telNumbers = telNumbers;
 	}
 
 	public void addNumber (String one) {
 		Boolean isFounded = false;
-
-		if (telNumbers.contains(one)) {
-			isFounded = true;
+		for (int i = 0; i < telNumbers.length; i++) {
+			if (telNumbers[i] != null) {
+			if (telNumbers[i].equals(one)) {
+				isFounded = true;
+			}
 		}
+		}
+
 		if (!isFounded) {
-			telNumbers.add(one);
+			for (int i = 0; i < telNumbers.length;i++) {
+				if (telNumbers[i] == null) {
+					telNumbers[i] = one;
+					break;
+				}
+			}
+			
 			
 		}
 		
 	}
 
 	public void print () {
-
-			System.out.println("Registered phones: " + telNumbers);
+		System.out.println("Registered phones:");
+			for (int i = 0; i < telNumbers.length;i++) {
+				if (telNumbers[i] != null) 
+				System.out.println(telNumbers[i]);
+			}
 
 		
 	}

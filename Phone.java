@@ -40,7 +40,16 @@ public class Phone {
 		
 	}
 	public void call(String caller) {
-		if(network.getTelNumbers().contains(caller)) {
+		
+		Boolean isChecked = false;
+		for (int i = 0; i < network.getTelNumbers().length; i++) {
+			if (network.getTelNumbers()[i] != null) {
+			if(network.getTelNumbers()[i].equals(caller)) {
+				isChecked = true;
+			}
+			}
+		}
+		if (isChecked) {
 			System.out.println("Calling " + caller);
 		} else {
 			System.out.println("There is no registered phone " + caller + " on this Network");
