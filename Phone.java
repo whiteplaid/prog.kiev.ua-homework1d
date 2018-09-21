@@ -3,7 +3,7 @@ package com.homework.phone;
 public class Phone {
 	private String number;
 	private Network network;
-	//private String caller;
+	
 
 	public Phone(String number, Network network) {
 		super();
